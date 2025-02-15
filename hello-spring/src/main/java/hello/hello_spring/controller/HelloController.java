@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController
@@ -22,4 +23,33 @@ public class HelloController
         model.addAttribute("name", name);
         return "hello-template";
     }
+
+    @GetMapping("hello-string")
+    @ResponseBody  // http 통신의 body 부분
+    public String helloString(@RequestParam("name") String name) {
+        return "hello " + name;
+    }
+
+    // ctrl + shift + enter를 치면 문장 끝이 ;로 완성된다.
+    @GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloApi(@RequestParam("name") String name) {
+        Hello hello = new Hello();
+        hello.setName(name);
+        return hello;
+    }
+
+    //객체부터 생성
+    static class Hello {
+        private String name;
+        // ctrl + n
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
 }
