@@ -42,7 +42,7 @@ public class HelloController
     //객체부터 생성
     static class Hello {
         private String name;
-        // ctrl + n
+        // alt + insert
         public String getName() {
             return name;
         }
