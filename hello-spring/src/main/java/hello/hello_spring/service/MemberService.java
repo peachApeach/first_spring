@@ -9,8 +9,16 @@ import java.util.Optional;
 
 public class MemberService {
 
-    // 회원 서비스를 만들려면  repository가 필요
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //// 회원 서비스를 만들려면  repository가 필요
+    //private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    // 같은 객체를 사용하기 위한 방법
+    private final MemoryMemberRepository memberRepository;
+
+    public MemberService(MemoryMemberRepository memberRepository) {
+        // 변수로 선언하여 repository를 외부에서 삽입하도록 변경
+        this.memberRepository = memberRepository;
+    }
 
     // 회원 가입
     // 중복 이름이 있는 회원 가입 거절

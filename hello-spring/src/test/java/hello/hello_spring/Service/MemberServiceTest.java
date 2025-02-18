@@ -4,6 +4,8 @@ import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import hello.hello_spring.service.MemberService;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -12,9 +14,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
 
-    MemberService memberService = new MemberService();
-    // clear 작업을 위한 레포지토리 사용
-    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+    // MemberService memberService = new MemberService();
+    ////MemberService에서 선언한 MemoryMemberRepository와 아래 선언된 MemoryMemberRepository는 서로 다른 객체
+    //MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+
+    // 같은 객체를 쓰는 방법
+    @BeforeEach
+    public void beforeEach() {
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
+
+    // method가 끝날 때마다 호출되는 콜백 메소드
+    @AfterEach
+    public void afterEach() {
+        memberRepository.clearStore();
+    }
 
     // repository에 있던 AfterEach 함수를 가져와 각 케이스별 작업이 완료되면 객체를 비우게 된다.
     @Test
