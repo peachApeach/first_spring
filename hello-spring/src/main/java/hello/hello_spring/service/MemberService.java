@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
+
     // 회원 서비스를 만들려면  repository가 필요
     private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     // 회원 가입
     // 중복 이름이 있는 회원 가입 거절
-    private Long join(Member member) {
+    public Long join(Member member) {
         // = 다음 부분 입력 후 ctrl + alt + v (Mac : command + option + v)
         // optional로 반환되도록 전환 
         Optional<Member> result = memberRepository.findByNames(member.getName());
@@ -34,7 +35,7 @@ public class MemberService {
     }
 
     //전체 회원 조회
-    private List<Member> findMember() {
+    public List<Member> findMember() {
         return memberRepository.findAll();
     }
 
