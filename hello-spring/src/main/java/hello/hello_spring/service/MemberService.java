@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-//@Service
+@Service
 public class MemberService {
 
     //// 회원 서비스를 만들려면  repository가 필요
