@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     //// 회원 서비스를 만들려면  repository가 필요
@@ -18,7 +18,7 @@ public class MemberService {
     // 같은 객체를 사용하기 위한 방법
     private final MemoryMemberRepository memberRepository;
 
-    @Autowired
+    //@Autowired
     public MemberService(MemoryMemberRepository memberRepository) {
         // 변수로 선언하여 repository를 외부에서 삽입하도록 변경
         this.memberRepository = memberRepository;

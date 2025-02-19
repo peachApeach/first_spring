@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+//@Controller
 public class HelloController
 {
     // 웹 어플리케이션에서 /hello라고 경로를 지정할 경우 해당 메서드를 실행한다.
