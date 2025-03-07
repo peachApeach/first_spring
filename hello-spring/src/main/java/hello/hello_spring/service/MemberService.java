@@ -31,7 +31,7 @@ public class MemberService {
     public Long join(Member member) {
         // = 다음 부분 입력 후 ctrl + alt + v (Mac : command + option + v)
         // optional로 반환되도록 전환 
-        Optional<Member> result = memberRepository.findByNames(member.getName());
+        Optional<Member> result = memberRepository.findByName(member.getName());
         validateName(result);       // 중복회원 검증
 
         memberRepository.save(member);

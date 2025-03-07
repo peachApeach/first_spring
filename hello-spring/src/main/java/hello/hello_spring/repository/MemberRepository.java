@@ -11,6 +11,6 @@ public interface MemberRepository {
     Member save(Member member);
     // optional은 java 8에  들어간 기능인데 null이 반환될 경우 처리할 수 있는 기능
     Optional<Member> findById(Long id);
-    Optional<Member> findByNames(String name);
+    Optional<Member> findByName(String name);
     List<Member> findAll();
 }

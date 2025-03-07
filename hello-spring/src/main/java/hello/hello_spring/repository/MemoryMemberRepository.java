@@ -30,7 +30,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findByNames(String name) {
+    public Optional<Member> findByName(String name) {
         // findAny는 하나라도 찾는 것을 의미
         return store.values().stream().filter(member -> member.getName().equals(name)).findAny();
     }

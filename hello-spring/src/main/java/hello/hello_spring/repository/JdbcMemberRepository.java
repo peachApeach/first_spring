@@ -99,7 +99,7 @@ public class JdbcMemberRepository implements MemberRepository{
         }
     }
     @Override
-    public Optional<Member> findByNames(String name) {
+    public Optional<Member> findByName(String name) {
         String sql = "select * from member where name = ?";
         Connection conn = null;
         PreparedStatement pstmt = null;

@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Member {
 
-    @Id             // pk 값
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 생성
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 생성
     private Long id;
     @Column(name = "name")
     private String name;
